@@ -29,3 +29,7 @@
 - Ch 1.7's function `power()` has a strange and useless definition of a for loop
   setting the counter to 1 and the comparator to `i <= n`. Why? `i = 0; i < n`
   would be equivalent. Most of the time it's also what programmers use.
+- I do not know why K&R do not declare the return value for `main()` (I assume
+  it was unnecessary and not typical practice in 1989/1990 when ANSI was
+  declared). However, I will from here out declare it and provide a return value
+  for the reasons that (a) gcc complains and (b) it's good practice.
