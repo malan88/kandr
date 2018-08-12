@@ -3,11 +3,11 @@
 /* count lines in input */
 main()
 {
-    int c, n1;
+    int c, nl;
 
-    n1 = 0;
+    nl = 0;
     while ((c = getchar()) != EOF)
         if ( c == '\n')
-            ++n1;
-    printf("%d\n", n1);
+            ++nl;
+    printf("%d\n", nl);
 }
