@@ -56,17 +56,14 @@ void copy(char to[], char from[])
 
 char* triml(char s[])
 {
-    int i, lastc = 0;
+    int j;
+    int lastc = 0;
 
-    while (s[i] != '\0'){
-        if (s[i] != '\t' || s[i] != ' ')    // if s[i] is not a blank
-            lastc = i;                      // set lastc to i 
-        i++;
-    }
-    lastc++;
+    for(j = 0; s[j] != '\0'; j++)
+        if (s[j] != '\t' || s[j] != ' ' || s[j] != '\n' || s[j] != 10){
+            lastc = j;
+        }
+
     s[lastc] = '\0';
-    lastc++;
-    for (; lastc < i; lastc++)
-        s[lastc] = '0';    // set it to null
     return s;
 }
