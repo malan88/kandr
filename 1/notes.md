@@ -23,3 +23,6 @@
   Similar logic applies to `c+'A'` and `c-'A'`, which is how you upper and lower
   case letters. IDK, I just always understood it better when it was explained
   that `'A'` represents 65.
+- Ex 1-13's challenge of printing the histogram vertically is a doozy. I think I
+  have the general conception, and it requires nested for loops in an
+  interesting way
