@@ -33,3 +33,6 @@
   it was unnecessary and not typical practice in 1989/1990 when ANSI was
   declared). However, I will from here out declare it and provide a return value
   for the reasons that (a) gcc complains and (b) it's good practice.
+- It is interesting that K&R would like you to mindlessly copy out a program
+  without completely understanding it until, afterward when they explain it. I
+  would think they would explain concepts in the program before we copy it!
