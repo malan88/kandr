@@ -9,6 +9,11 @@
  - The cntwd.c prog has strange behavior.
     1. By adding an extra space between two words the char count jumps by two.
     2. How does it not overincrement word count with extra spaces? Oh. nvm.
-        - By making the `(state == OUT)` test an `else if` it's not immediately
-          activated following a `state = OUT` declaration. Each subsequent space
-          still trips the first part of the branch.
+    - By making the `(state == OUT)` test an `else if` it's not immediately
+      activated following a `state = OUT` declaration. Each subsequent space
+      still trips the first part of the branch. (How does markdown implement
+      nesting for bullets/numbers?)
+ - Fascinatingly, K&R take you through the language very slowly. It is not like
+   most modern programming language where all operators are thrown at you at
+   once (which is how *I* prefer it when I'm learning new languages because the
+   concepts don't have to be explained to me anymore).
