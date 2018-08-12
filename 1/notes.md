@@ -26,3 +26,6 @@
 - Ex 1-13's challenge of printing the histogram vertically is a doozy. I think I
   have the general conception, and it requires nested for loops in an
   interesting way
+- Ch 1.7's function `power()` has a strange and useless definition of a for loop
+  setting the counter to 1 and the comparator to `i <= n`. Why? `i = 0; i < n`
+  would be equivalent. Most of the time it's also what programmers use.
