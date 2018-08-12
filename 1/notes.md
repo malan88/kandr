@@ -36,3 +36,8 @@
 - It is interesting that K&R would like you to mindlessly copy out a program
   without completely understanding it until, afterward when they explain it. I
   would think they would explain concepts in the program before we copy it!
+- Deleting the `'\0'` appendage in `getl()` in 1.9 doesn't seem to functionally
+  change anything. C these days must be smart enough to stop reading regardless
+  of the `'\0'`! Otherwise, it should have kept printing memory locations that
+  weren't apart of the string, so I should have just gotten the line followed by
+  gibberish.
