@@ -20,14 +20,14 @@ int main()
             pos++;
         }else{
             while (pos - i > 0){
-                if (pos % TABSTOP == 0 || pos - i == TABSTOP){
-                    putchar('\t');
-                    i += TABSTOP - (i % TABSTOP);
+                if (pos - i < TABSTOP && pos % TABSTOP != 0){
 //                    printf("(%d,%d)", i, pos);
-                }else{
-                    putchar(' ');
+                    putchar('@');
                     i++;
+                }else{
 //                    printf("(%d,%d)", i, pos);
+                    putchar('\\');
+                    i += TABSTOP - (i % TABSTOP);
                 }
             }
             putchar(c);
