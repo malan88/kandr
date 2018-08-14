@@ -5,13 +5,13 @@ int getl(char line[], int maxline); // lol: getline() is declared in stdio.h
 void copy(char to[], char from[]);
 void revs(char to[], char from[]);
 
-// print longest input line 
+// Reverse string
 int main()
 {
     int len;                // current line length 
     int max;                // maximum length seen so far 
     char line[MAXLINE];     // current input line 
-    char reversed[MAXLINE];  // longest line saved here 
+    char reversed[MAXLINE];  // reversed line
 
     while ((len = getl(line, MAXLINE)) > 0){
         revs(reversed, line);

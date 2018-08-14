@@ -4,13 +4,12 @@
 int getl(char line[], int maxline); // lol: getline() is declared in stdio.h
 void copy(char to[], char from[]);
 
-// print longest input line 
+// only pint if greater than 80 cols
 int main()
 {
     int len;                // current line length 
     int max;                // maximum length seen so far 
     char line[MAXLINE];     // current input line 
-    char longest[MAXLINE];  // longest line saved here 
 
     max = 0;
     while ((len = getl(line, MAXLINE)) > 0)
