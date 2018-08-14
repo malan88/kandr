@@ -2,7 +2,6 @@
 #define MAXLINE 1000    // max input line size 
 
 int getl(char line[], int maxline); // lol: getline() is declared in stdio.h
-void copy(char to[], char from[]);
 
 // only pint if greater than 80 cols
 int main()
@@ -21,7 +20,6 @@ int getl(char s[], int lim)
 {
     int c, i;
 
-    // initial copy
     for (i=0; i<lim-1 && (c=getchar())!=EOF && c!='\n'; ++i) // that is nasty
         s[i] = c;
 
@@ -39,13 +37,4 @@ int getl(char s[], int lim)
     }
 
     return i;
-}
-
-// copy: copy 'from' into 'to'; assumte to is big enough *yikes!*
-void copy(char to[], char from[])
-{
-    int i = 0; // K&R initialize this a line below; why?
-
-    while ((to[i] = from[i]) != '\0')
-        ++i;
 }

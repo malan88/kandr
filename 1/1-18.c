@@ -2,7 +2,6 @@
 #define MAXLINE 1000    // max input line size 
 
 int getl(char line[], int maxline); // lol: getline() is declared in stdio.h
-void copy(char to[], char from[]);
 int triml(char s[], int len);
 int isbl(char c);
 
@@ -37,16 +36,6 @@ int getl(char s[], int lim)
 
     return i;
 }
-
-// copy: copy 'from' into 'to'; assumte to is big enough *yikes!*
-void copy(char to[], char from[])
-{
-    int i = 0; // K&R initialize this a line below; why?
-
-    while ((to[i] = from[i]) != '\0')
-        ++i;
-}
-    int j;
 
 int triml(char s[], int len)
 {

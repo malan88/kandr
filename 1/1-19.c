@@ -2,7 +2,6 @@
 #define MAXLINE 1000    // max input line size 
 
 int getl(char line[], int maxline); // lol: getline() is declared in stdio.h
-void copy(char to[], char from[]);
 void revs(char to[], char from[]);
 
 // Reverse string
@@ -33,15 +32,6 @@ int getl(char s[], int lim)
     }
     s[i] = '\0'; // append the null terminator (which K&R haven't explained yet)
     return i;
-}
-
-// copy: copy 'from' into 'to'; assume to is big enough *yikes!*
-void copy(char to[], char from[])
-{
-    int i = 0; // K&R initialize this a line below; why?
-
-    while ((to[i] = from[i]) != '\0')
-        ++i;
 }
 
 // revs: reverse 'from' into 'to';
