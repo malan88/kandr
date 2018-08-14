@@ -6,15 +6,12 @@ void copy(char to[], char from[]);
 int triml(char s[], int len);
 int isbl(char c);
 
-// print longest input line 
+// trim trailing blanks
 int main()
 {
     int len;                // current line length 
-    int max;                // maximum length seen so far 
     char line[MAXLINE];     // current input line 
-    char longest[MAXLINE];  // longest line saved here 
 
-    max = 0;
     while ((len = getl(line, MAXLINE)) > 0){
         len = triml(line, len);
         printf("%s", line);
