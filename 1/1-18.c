@@ -3,7 +3,8 @@
 
 int getl(char line[], int maxline); // lol: getline() is declared in stdio.h
 void copy(char to[], char from[]);
-char* triml(char s[]);
+int triml(char s[], int len);
+int isbl(char c);
 
 // print longest input line 
 int main()
@@ -15,7 +16,8 @@ int main()
 
     max = 0;
     while ((len = getl(line, MAXLINE)) > 0){
-        printf("%d: %s", len, triml(line));
+        len = triml(line, len);
+        printf("%s", line);
     }
     return 0;
 }
@@ -33,14 +35,8 @@ int getl(char s[], int lim)
         s[i] = c;
         ++i;
         s[i] = '\0'; 
-
-    }else if (i >= lim-1){      // terminated on i == lim-1
-
-        // i++ til EOF or \n, don't cp into s[]
-        for( ; (c=getchar())!=EOF && c!='\n'; ++i)
-            ;
-        s[lim-1] = '\0';
     }
+
 
     return i;
 }
@@ -53,17 +49,26 @@ void copy(char to[], char from[])
     while ((to[i] = from[i]) != '\0')
         ++i;
 }
-
-char* triml(char s[])
-{
     int j;
-    int lastc = 0;
 
-    for(j = 0; s[j] != '\0'; j++)
-        if (s[j] != '\t' || s[j] != ' ' || s[j] != '\n' || s[j] != 10){
-            lastc = j;
-        }
+int triml(char s[], int len)
+{
 
-    s[lastc] = '\0';
-    return s;
+    for(; isbl(s[len]); --len){
+        s[len] = '\0';
+    }
+
+    len++;
+    s[len] = '\n';
+    s[++len] = '\0';
+
+    return len;
+
+}
+
+int isbl(char c){
+    if (c == ' ' || c == '\t' || c == '\n' || c == '\0' | c == '\r'){
+        return 1;
+        }else
+        return 0;
 }
