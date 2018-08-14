@@ -9,10 +9,13 @@ int main(){
     for(int i = 1; (c = getchar()) != EOF; i++)
         if (c == '\t')
             while(i % TABSTOP != 0){
-                i++;
                 putchar(' ');
+                i++;
             }
-        else
+        else if (c == '\n'){
+            i = 0;
+            putchar(c);
+        }else
             putchar(c);
 
     return 0;
