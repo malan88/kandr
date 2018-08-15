@@ -1,4 +1,5 @@
 ﻿THE DECLARATION OF INDEPENDENCE OF THE UNITED STATES OF AMERICA
+===============================================================
 
 
 When in the Course of human events, it becomes necessary for one people to
@@ -24,7 +25,7 @@ abolishing the forms to which they are accustomed.  But when a long train of
 abuses and usurpations, pursuing invariably the same Object evinces a design to
 reduce them under absolute Despotism, it is their right, it is their duty, to
 throw off such Government, and to provide new Guards for their future security.
---Such has been the patient sufferance of these Colonies; and such is now the
+---Such has been the patient sufferance of these Colonies; and such is now the
 necessity which constrains them to alter their former Systems of Government.
 The history of the present King of Great Britain is a history of repeated
 injuries and usurpations, all having in direct object the establishment of an
