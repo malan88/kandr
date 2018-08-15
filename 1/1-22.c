@@ -1,32 +1,40 @@
 #include <stdio.h>
-#define MAXLINE 1000    // max input line size 
-#define MAXNL   12      // max number of lines in MAXLINE
-#define WRAP    80      // hardwrap at col 80
 
+#define     WRAP    81      // hardwrap at col 80
+#define     TAB     8       // tab size
+
+int getl(char s[], int lim);
+int f_last_bl(char s[], int end);
 int isbl(char c);
+void printl(char s[], int last);
+int rebase(char s[], int pos);
 
 // hardwrap lines at WRAP
 int main()
 {
     int len;                // current line length 
-    char c;
-    char line[MAXLINE];     // current input line 
-    char out[MAXNL][WRAP];  // Array to store line after processed
+    char line[BUFSIZ];      // current input line 
 
-    while ((len = getl(line, MAXLINE)) > 0){
-        int i;
-
-        for (i = len, int j = 0; i >= 0; i--, j++)
-            if (isbl(line[j]))
-                break;
-            
-        if (i > 0){
-            line[j] = '\0';
-            printf("%s\n", line);
-            i = 0;
+    while ((len = getl(line, BUFSIZ)) > 0)
+        if (len <= WRAP)
+            printf("%s", line);
+        else{
+            do{
+                int bl = f_last_bl(line, WRAP);
+                if (bl > 0){
+                    printl(line, bl);
+                    len = rebase(line, bl+1);
+                }else{
+                    printf("%s", line);
+                    len = WRAP;
+                }
+            } while(len > WRAP);
+            if (len > 0)
+                printf("%s", line);
         }
-    }
+    
 }
+
 
 // getl: read a line into s, return len
 int getl(char s[], int lim)
@@ -53,18 +61,47 @@ int getl(char s[], int lim)
     return i;
 }
 
-int isbl(char c){
-    if (c == ' ' || c == '\t' || c == '\n' || c == '\0' | c == '\r'){
+int f_last_bl(char s[], int end)
+{
+    int i = end;
+    while (!isbl(s[i]) && i >= 0)
+        i--;
+    if (i > 0)
+        return i;
+    else
+        return end;
+}
+
+// Return null if a char is any kind of blank
+int isbl(char c)
+{
+    if (c == ' ' || c == '\t')
         return 1;
-        }else
+    else
         return 0;
 }
 
-// copy: copy 'from' into 'to'; assumte to is big enough *yikes!*
-void copy(char to[], char from[], int start, int stop)
+// print the array up til last (exclusive)
+void printl(char s[], int last)
 {
-    int i = start; // K&R initialize this a line below; why?
-
-    while ((to[i] = from[i]) != '\0' && i < stop)
-        ++i;
+    for (int i = 0; i < last; i++)
+        putchar(s[i]);
+    putchar('\n');
 }
+
+int rebase(char s[], int pos)
+{
+    int i, j;
+
+    if (pos <= 0)
+        return -1;
+    else{
+        i = 0;
+        for(int j = pos; j < BUFSIZ && s[j] != '\0'; j++, i++)
+            s[i] = s[j];
+        s[i+1] = '\0';
+        return i;
+    }
+}
+
+
