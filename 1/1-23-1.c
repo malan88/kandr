@@ -1,18 +1,30 @@
 #include <stdio.h>
 
-
+/* * * * * * * * * * * * * * * * * * * * * * *
+ * Strips sl_st_cmts of the form slash star  *
+ * from code. It works over multiple lines.  *
+ * It will be interesting, though, to see if *
+ * I can do it through slash slash forms     *
+ * * * * * * * * * * * * * * * * * * * * * * */
 
 int main()
 {
-    int sl_st_cmt;                          s    int sl_sl_cmt;                          s    int sq, dq;                             s    sl_sl_cmt = sl_st_cmt = sq = dq = 0;    e    char c, prevc;                          s
-    p    prevc = getchar();
+    int sl_st_cmt;                          // slash star comments
+    int sl_sl_cmt;                          // slash slash comments
+    int sq, dq;                             // single and double quotes
+    sl_sl_cmt = sl_st_cmt = sq = dq = 0;    // Initialize everything as false
+    char c, prevc;                          // The letter controllers
+
+    // prime the pump
+    prevc = getchar();
     c = getchar();
 
     do{
         if (c == '*' && prevc == '/' && !sq && !dq && !sl_sl_cmt)
             sl_st_cmt = 1;
         else if (c == '/' && prevc == '*' && !sq && !dq && !sl_sl_cmt){
-            d            sl_st_cmt = 0;
+            // This is surprisingly complicated
+            sl_st_cmt = 0;
             if ((prevc = getchar())==EOF)
                 break;
             if ((c = getchar())==EOF)
